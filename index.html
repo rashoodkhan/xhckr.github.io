@@ -3,7 +3,6 @@
 	<title>Rashid Khan</title>
 	<link href="css/basscss.css" rel="stylesheet">
 	<link href="http://fonts.googleapis.com/css?family=Source+Code+Pro&amp;subset=latin" rel="stylesheet">
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 	<script src="js/smooth-scroll.min.js"></script>
 
 	<script>
@@ -19,8 +18,12 @@
 
 	<style>
 		header {
-			height: 80%;
+			height: 100%;
 		}
+
+		/*.container {
+			height: 100%;
+		}*/
 	</style>
 
 	<style>
@@ -41,27 +44,27 @@
 		}</style>
 	</head>
 	<body class="bg-black">
-		<header class="white bg-gray bg-cover bg-center" style="background-image: url(images/keyboard.jpg);">
+		<header id="home" class="white bg-gray bg-cover bg-center" style="background-image: url(images/keyboard.jpg);">
 
 			<nav class="clearfix white">
-				<div class="sm-flex center nowrap">
+				<div id="nav-bar" class="fixed top-0 left-0 right-0 p0 sm-flex center nowrap">
 					<div class="flex-auto">
-						<a href="#" class="h3 button button-outline not-rounded mt3 mr1">Home</a>
+						<a data-scroll href="#home" class="h3 button button-outline not-rounded mt2 mb2 mr1">Home</a>
 					</div>
 					<div class="flex-auto">
-						<a data-scroll href="#about" class="h3 button button-outline not-rounded mt3 mr1">About</a>
+						<a data-scroll href="#about" class="h3 button button-outline not-rounded mt2 mb2 mr1">About</a>
 					</div>
 					<div class="flex-auto">
-						<a href="http://blog.imrashid.com" class="h3 button button-outline not-rounded mt3 mr1">Blog</a>
+						<a href="http://blog.imrashid.com" class="h3 button button-outline not-rounded mt2 mb2 mr1">Blog</a>
 					</div>
 					<div class="flex-auto">	
-						<a data-scroll href="#contact" class="h3 button button-outline not-rounded mt3 mr1">Contact</a>
+						<a data-scroll href="#contact" class="h3 button button-outline not-rounded mt2 mb2 mr1">Contact</a>
 					</div>	
 				</div>
 			</nav>
 
 			<div class="center mt4">
-				<h1 class="h1 h1-responsive caps m0">Rashid Khan</h1>
+				<h1 class="h1 h1-responsive caps m0" style="margin-top:29%">Rashid Khan</h1>
 			</div>
 
 		</header>
@@ -81,13 +84,21 @@
 			</div>
 		</div>
 	</body>
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 	<script>
 		smoothScroll.init({
-    	speed: 1500, // Integer. How fast to complete the scroll in milliseconds
-    	easing: 'easeInOutCubic', // Easing pattern to use
-    	updateURL: false, // Boolean. Whether or not to update the URL with the anchor hash on scroll
-    	offset: 0, // Integer. How far to offset the scrolling anchor location in pixels
-    });
+    		speed: 1500, // Integer. How fast to complete the scroll in milliseconds
+    		easing: 'easeInOutCubic', // Easing pattern to use
+    		updateURL: false, // Boolean. Whether or not to update the URL with the anchor hash on scroll
+    		offset: 0, // Integer. How far to offset the scrolling anchor location in pixels
+    	});
+		$(window).scroll(function () {
+    		if ($(window).scrollTop() > 100) {
+      			$('#nav-bar').addClass('bg-black-muted');
+    		} else {
+      			$('#nav-bar').removeClass('bg-black-muted');
+    		}
+		});
 	</script>
 	</html>
 
